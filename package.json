@@ -1,0 +1,15 @@
+{
+  "name": "node-tests-students",
+  "private": true,
+  "scripts": {
+    "test": "jest --runInBand",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint students/",
+    "complexity": "cr students/"
+  },
+  "devDependencies": {
+    "jest": "^29",
+    "eslint": "^8",
+    "complexity-report": "^2.0.0-alpha"
+  }
+}
