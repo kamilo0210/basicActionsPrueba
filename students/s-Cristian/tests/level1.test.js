@@ -1,6 +1,6 @@
 const { countCharacter, multiplyArray, joinWithHyphen } = require('../src/level1');
 
-describe('Nivel 1 – Funciones Básicas (nuevas)', () => {
+describe('Level 1 – Funciones Básicas', () => {
 
   // -----------------------------
   test('countCharacter: debería contar correctamente las apariciones de un carácter y manejar errores', () => {
