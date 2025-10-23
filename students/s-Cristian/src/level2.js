@@ -80,5 +80,4 @@ function uniqueWords(text) {
   return uniques;
 }
 
-// Exportar para Jest
 module.exports = { toTitleCase, isIsogram, uniqueWords };
