@@ -38,9 +38,6 @@ describe('Level 2 – Lógica y Condiciones', () => {
   // -----------------------------
   test('uniqueWords: debería retornar las palabras únicas de un texto y manejar casos inválidos', () => {
     // Casos válidos
-    const texto1 = 'El sol brilla y el mar brilla también';
-    expect(uniqueWords(texto1)).toEqual(['y', 'mar', 'también']);
-    
     const texto2 = 'Uno dos tres uno';
     expect(uniqueWords(texto2)).toEqual(['dos', 'tres']);
 

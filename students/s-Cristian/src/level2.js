@@ -2,13 +2,12 @@
 /**
  * Capitaliza cada palabra de una oración (Title Case)
  */
-
 function toTitleCase(text) {
   if (typeof text !== 'string' || text.trim() === '') {
     return '';
   }
 
-  const words = text.toLowerCase().split(/\s+/);
+  const words = text.toLowerCase().trim().split(/\s+/);
   const capitalized = [];
 
   for (let i = 0; i < words.length; i++) {
@@ -17,7 +16,7 @@ function toTitleCase(text) {
     capitalized.push(cap);
   }
 
-  return capitalized.join(' ');
+  return capitalized.join(' ').trim();
 }
 
 // --- Funcion 2 ---
@@ -48,29 +47,28 @@ function isIsogram(word) {
 }
 
 
-// --- Funcion 3 ---
 /**
  * Encuentra las palabras únicas de un texto (sin repetir)
  */
-
 function uniqueWords(text) {
   if (typeof text !== 'string' || text.trim() === '') {
     return [];
   }
 
+  const stopwords = ['el', 'la', 'los', 'las', 'un', 'una', 'unos', 'unas', 'y', 'o', 'de'];
   const words = text
     .toLowerCase()
-    .replace(/[^\wáéíóúüñ\s]/gi, '') // eliminar puntuación
-    .split(/\s+/);
+    .replace(/[^\wáéíóúüñ\s]/gi, '')
+    .split(/\s+/)
+    .filter(w => w && !stopwords.includes(w));
 
-  const uniques = [];
   const counts = {};
-
   for (let i = 0; i < words.length; i++) {
     const w = words[i];
     counts[w] = (counts[w] || 0) + 1;
   }
 
+  const uniques = [];
   for (const w in counts) {
     if (counts[w] === 1) {
       uniques.push(w);
