@@ -1,44 +1,28 @@
-/**
- * Invierte un string
- */
-function invertirString(texto) {
-  if (typeof texto !== 'string') {
-    return '';
+// --- Funcion 1 ---
+// Devuelve cuántas veces aparece un carácter específico en un texto
+function countCharacter(text, char) {
+  if (typeof text !== 'string' || typeof char !== 'string' || char.length !== 1) {
+    throw new Error('Both arguments must be strings, and the second must be a single character');
   }
-  let resultado = '';
-  for (let i = texto.length - 1; i >= 0; i--) {
-    resultado += texto[i];
-  }
-  return resultado;
+  return [...text].filter(c => c.toLowerCase() === char.toLowerCase()).length;
 }
 
-/**
- * Calcula el promedio de un array de números
- */
-function calcularPromedio(numeros) {
-  if (!Array.isArray(numeros) || numeros.length === 0) {
-    return 0;
-  }
-  let suma = 0;
-  for (let i = 0; i < numeros.length; i++) {
-    suma += numeros[i];
-  }
-  return suma / numeros.length;
+// --- Funcion 2 ---
+// Multiplica todos los números en un arreglo
+function multiplyArray(nums) {
+  if (!Array.isArray(nums)) throw new Error('Input must be an array');
+  if (nums.length === 0) return 0;
+  return nums.reduce((product, num) => product * num, 1);
 }
 
-/**
- * Cuenta las palabras en una oración
- */
-function contarPalabras(texto) {
-  if (typeof texto !== 'string' || texto.trim() === '') {
-    return 0;
+// --- Funcion 3 ---
+// Une un arreglo de palabras en una sola cadena, separadas por guiones
+function joinWithHyphen(words) {
+  if (!Array.isArray(words)) throw new Error('Input must be an array');
+  if (words.some(word => typeof word !== 'string')) {
+    throw new Error('All elements in the array must be strings');
   }
-  const palabras = texto.trim().split(/\s+/);
-  return palabras.length;
+  return words.join('-');
 }
 
-module.exports = {
-  invertirString,
-  calcularPromedio,
-  contarPalabras
-};
+module.exports = { countCharacter, multiplyArray, joinWithHyphen };
